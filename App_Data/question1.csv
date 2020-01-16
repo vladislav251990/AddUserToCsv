@@ -1,0 +1,4 @@
+FirstName, LastName, Address, City, State, Zip, IsActive
+"John", "Doe", "Collier's Street", "Dallas", Texas, 75182, true
+"Jane", "Donovan", "Cookies & Cream", "Ft. Worth", Texas, 75075, false
+Luke, Johnson, Crimson road, Austin, Texas, 75231, false

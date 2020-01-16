@@ -1,0 +1,121 @@
+﻿<!--<h2>Welcome to ASP.NET MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>
+        User Adding
+    </title>
+    @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <table id="users">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+        @foreach (var user in ViewBag.Users)
+        {
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.Address</td>
+                <td>@user.City</td>
+                <td>@user.State</td>
+                <td>@user.Zip</td>
+            </tr>
+        }
+
+    </table>
+    @using (Ajax.BeginForm("AddUser", "Home", new AjaxOptions { UpdateTargetId = "users" }))
+    {
+        <ul class="form-style-1">
+            <li><label>Full Name <span class="required">*</span></label><input type="text" name="FirstName" class="field-divided" placeholder="First" /> <input type="text" name="LastName" class="field-divided" placeholder="Last" /></li>
+            <li>
+                <label>Address <span class="required">*</span></label>
+                <input type="text" name="Address" class="field-long" required/>
+            </li>
+            <li>
+                <label>City<span class="required">*</span></label>
+                <input type="text" name="City" class="field-long" required/>
+            </li>
+            <li>
+                <label>State<span class="required">*</span></label>
+                <select name="State" class="field-select">
+                    <option value="Alabama">Alabama</option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Arkansas">Arkansas</option>
+                    <option value="California">California</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Connecticut">Connecticut</option>
+                    <option value="Delaware">Delaware</option>
+                    <option value="District of Columbia">District of Columbia</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Iowa">Iowa</option>
+                    <option value="Kansas">Kansas</option>
+                    <option value="Kentucky">Kentucky</option>
+                    <option value="Louisiana">Louisiana</option>
+                    <option value="Maine">Maine</option>
+                    <option value="Maryland">Maryland</option>
+                    <option value="Massachusetts">Massachusetts</option>
+                    <option value="Michigan">Michigan</option>
+                    <option value="Minnesota">Minnesota</option>
+                    <option value="Mississippi">Mississippi</option>
+                    <option value="Missouri">Missouri</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Nebraska">Nebraska</option>
+                    <option value="Nevada">Nevada</option>
+                    <option value="New Hampshire">New Hampshire</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="New Mexico">New Mexico</option>
+                    <option value="New York">New York</option>
+                    <option value="North Carolina">North Carolina</option>
+                    <option value="North Dakota">North Dakota</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
+                    <option value="Oregon">Oregon</option>
+                    <option value="Pennsylvania">Pennsylvania</option>
+                    <option value="Rhode Island">Rhode Island</option>
+                    <option value="South Carolina">South Carolina</option>
+                    <option value="South Dakota">South Dakota</option>
+                    <option value="Tennessee">Tennessee</option>
+                    <option value="Texas">Texas</option>
+                    <option value="Utah">Utah</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Washington">Washington</option>
+                    <option value="West Virginia">West Virginia</option>
+                    <option value="Wisconsin">Wisconsin</option>
+                    <option value="Wyoming">Wyoming</option>
+                </select>
+            </li>
+            <li>
+                <label>Zip<span class="required">*</span></label>
+                <input type="text" name="Zip" class="field-long" required/>
+            </li>
+            <li>
+                <label>Is Active<span class="required">*</span></label>
+                <input type="checkbox" name="IsActive" class="field-long" />
+            </li>
+            <li>
+                <input type="submit" value="Add User" />
+            </li>
+        </ul>
+    }
+
+
+</body>
+</html>
